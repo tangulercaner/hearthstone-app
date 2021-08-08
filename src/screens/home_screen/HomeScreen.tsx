@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useState } from "react";
 import { View } from 'react-native';
 import { useSelector } from "react-redux";
@@ -6,55 +6,79 @@ import CardList from "../../components/lists/CardList";
 import MechanicList from "../../components/lists/MechanicsList";
 import SearchBar from "../../components/search/SearchBar";
 import { RootState } from "../../store";
-import { ICard } from "../../types/ApiResponseType";
+import { IApiResponse, ICard } from "../../types/ApiResponseType";
 import { HomeProps } from "../../types/NavigationTypes";
 import { getUniqueMechanics, searchCardByName } from "./HomeScreen.action";
 import { styles } from "./HomeScreen.style";
 import AccordionHeader from "../../components/accordion_header/AccordionHeader";
+import ScreenError from "../../components/error/ScreenError";
+import { getAllCards } from "../splash_screen/SplashScreen.action";
+
+interface IVisibleState {
+  searchVisible: boolean,
+  mechanicCardsVisibile: boolean
+}
 
 const HomeScreen: React.FC<HomeProps> = () => {
 
-  const cardData = useSelector((state: RootState) => state.Cards.cardsResponse)
+  const cardData: IApiResponse = useSelector((state: RootState) => state.Cards.cardsResponse)
+  const allCards = useSelector((state: RootState) => state.Cards.allCards)
 
-  const [mechanics, setMechanics] = useState<string[]>([]);
-  const [name, setName] = useState<string>("");
+  const [allMechanics, setAllMechanics] = useState<string[]>([]);
+
+  const [searchName, setSearchName] = useState<string>("");
   const [searchedCards, setSearchedCards] = useState<ICard[]>([]);
 
-  const [searchVisible, setSearchVisible] = useState<boolean>(false);
-  const [mechanicCardsVsibile, setMechanicCardsVisible] = useState<boolean>(false);
+  const [visibleState, setVisibleState] = useState<IVisibleState>({
+    searchVisible: false,
+    mechanicCardsVisibile: false
+  });
 
-
-  // const searchCards = useCallback((name) => {
-  //   setName(name)
-  //   setSearchedCards(searchCardByName(name, cardData.data))
-  // }, [name])
+  const searchCards = useCallback((name) => {
+    setSearchName(name)
+    setSearchedCards(searchCardByName(name, allCards))
+  }, [])
 
 
   useEffect(() => {
-    const uniqueMechanics = getUniqueMechanics(cardData.data)
-    setMechanics(uniqueMechanics)
+    const uniqueMechanics = getUniqueMechanics(allCards)
+    setAllMechanics(uniqueMechanics)
   }, [])
 
+  if (cardData.success == false) {
+    return (
+      <ScreenError onRefresh={getAllCards} />
+    );
+  }
 
   return (
     <View style={styles.container}>
 
-      <AccordionHeader title={"Search"} visible={searchVisible} setVisible={setSearchVisible} style={styles.accordionHeaderStyle} />
-      {searchVisible &&
+      <AccordionHeader
+        title={"Search"}
+        visible={visibleState.searchVisible}
+        setVisible={(value: boolean) => setVisibleState({ ...visibleState, searchVisible: value })}
+        style={styles.accordionHeaderStyle} />
+
+      {visibleState.searchVisible &&
         <View>
           <SearchBar
-            searchValue={name}
-            setSearchValue={setName}
-            onSearchSubmit={() => setSearchedCards(searchCardByName(name, cardData.data))}
+            searchValue={searchName}
+            setSearchValue={searchCards}
           />
           <CardList cardData={searchedCards} style={styles.mechanicListStyle} />
         </View>
       }
 
-      <AccordionHeader title={"Unique Mechanics List"} visible={mechanicCardsVsibile} setVisible={setMechanicCardsVisible} style={styles.accordionHeaderStyle} />
-      {mechanicCardsVsibile &&
+      <AccordionHeader
+        title={"Unique Mechanics List"}
+        visible={visibleState.mechanicCardsVisibile}
+        setVisible={(value: boolean) => setVisibleState({ ...visibleState, mechanicCardsVisibile: value })}
+        style={styles.accordionHeaderStyle} />
+
+      {visibleState.mechanicCardsVisibile &&
         <View style={{ flex: 1 }}>
-          <MechanicList mechanicsData={mechanics} style={styles.cardListStyle} />
+          <MechanicList mechanicsData={allMechanics} style={styles.cardListStyle} />
         </View>
       }
     </View>

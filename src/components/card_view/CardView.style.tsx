@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: CARD_BORDER_COLOR,
     maxWidth: 170,
-    maxHeight: 150,
+    maxHeight: 170,
     padding: 5,
     backgroundColor: CARD_BACKGROUND,
     shadowColor: "#000",

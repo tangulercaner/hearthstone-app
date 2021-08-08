@@ -1,15 +1,17 @@
-import { CARDS_RESPONSE, UNIQUE_MECHANICS } from './Types';
+import { ALL_CARDS, CARDS_RESPONSE, UNIQUE_MECHANICS } from './Types';
 import { AnyAction } from 'redux'
-import { IApiResponse } from '../types/ApiResponseType';
+import { IApiResponse, ICard } from '../types/ApiResponseType';
 
 interface CardsState {
   cardsResponse: IApiResponse | null,
-  uniqueMechanics: string[]
+  uniqueMechanics: string[],
+  allCards: ICard[]
 }
 
 const initialState: CardsState = {
   cardsResponse: null,
-  uniqueMechanics: []
+  uniqueMechanics: [],
+  allCards: []
 };
 
 export default (state = initialState, action: AnyAction) => {
@@ -18,6 +20,8 @@ export default (state = initialState, action: AnyAction) => {
       return { ...state, cardsResponse: action.payload };
     case UNIQUE_MECHANICS:
       return { ...state, uniqueMechanics: action.payload };
+    case ALL_CARDS:
+      return { ...state, allCards: action.payload };
     default:
       return state;
   }

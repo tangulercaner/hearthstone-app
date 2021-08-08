@@ -40,6 +40,28 @@ export const CaretUpIcon = (props: IIconProps) => {
   );
 };
 
+export const ErrorIcon = (props: IIconProps) => {
+  return (
+    <FontAwesome
+      name={'warning'}
+      size={props.size || 30}
+      color={props.color || PRIMARY_COLOR}
+      style={props.style}
+    />
+  );
+};
+
+export const RefreshIcon = (props: IIconProps) => {
+  return (
+    <FontAwesome
+      name={'refresh'}
+      size={props.size || 30}
+      color={props.color || PRIMARY_COLOR}
+      style={props.style}
+    />
+  );
+};
+
 export const CaretDownIcon = (props: IIconProps) => {
   return (
     <FontAwesome

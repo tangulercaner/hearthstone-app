@@ -17,7 +17,6 @@ const MechanicList: React.FC<IMechanicsList> = (props) => {
     );
   }, [])
 
-
   return (
     <View style={{}}>
       <FlatList

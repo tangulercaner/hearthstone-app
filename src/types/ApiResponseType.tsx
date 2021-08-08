@@ -6,12 +6,13 @@ export interface IMechanic {
 export interface ICard {
   cardId: string,
   cardSet: string,
-  health: number,
-  locale: string,
-  name: String,
+  health?: number,
+  cost?: number,
+  locale?: string,
+  name: string,
   playerClass: string,
-  type: string,
-  mechanics: IMechanic[]
+  type?: string,
+  mechanics?: IMechanic[]
 }
 
 export interface ICards {
@@ -19,7 +20,8 @@ export interface ICards {
 }
 
 export interface IApiResponse {
-  status: number;
-  success: boolean;
-  data: ICards;
+  status: number,
+  success: boolean,
+  data: ICards,
+  allCards: ICard[]
 }

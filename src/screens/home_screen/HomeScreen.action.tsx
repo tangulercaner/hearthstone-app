@@ -1,10 +1,8 @@
 import { UNIQUE_MECHANICS } from "../../reducers/Types";
 import { Store } from "../../store";
-import { ICard, ICards } from "../../types/ApiResponseType";
+import { ICard } from "../../types/ApiResponseType";
 
-export const getUniqueMechanics = (cards: ICards): string[] => {
-
-  const allCards = Object.values(cards).reduce((flatList: ICard[], el) => flatList.concat(el), [])
+export const getUniqueMechanics = (allCards: ICard[]): string[] => {
 
   let mechanics: string[] = [];
 
@@ -20,9 +18,9 @@ export const getUniqueMechanics = (cards: ICards): string[] => {
 
 }
 
-export const searchCardByName = (name: string, cards: ICards): ICard[] => {
+export const searchCardByName = (name: string, allCards: ICard[]): ICard[] => {
 
-  const allCards = Object.values(cards).reduce((flatList: ICard[], el) => flatList.concat(el), [])
+  if (name.length == 0) return ([])
 
   const searchedCards = allCards.filter(card => card?.name?.toLowerCase().includes(name.toLowerCase()))
 

@@ -3,7 +3,6 @@ import { View, FlatList } from "react-native";
 import { ICard } from "../../types/ApiResponseType";
 import CardView from "../card_view/CardView";
 
-
 interface ICardList {
   cardData: ICard[],
   style?: Object

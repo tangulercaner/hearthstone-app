@@ -7,7 +7,7 @@ import { styles } from "./SearchBar.style";
 interface ISearchBar {
   searchValue: string,
   setSearchValue: (newValue: string) => void,
-  onSearchSubmit: () => void,
+  onSearchSubmit?: () => void,
 
 }
 
@@ -23,7 +23,7 @@ const SearchBar: React.FC<ISearchBar> = (props) => {
         onChangeText={(newValue) => setSearchValue(newValue)}
         autoCapitalize="none"
         autoCorrect={false}
-        onEndEditing={() => onSearchSubmit()}
+        onEndEditing={() => onSearchSubmit ? onSearchSubmit() : null}
       />
     </View>
   );

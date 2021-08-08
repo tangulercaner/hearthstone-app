@@ -21,13 +21,13 @@ const CardView: React.FC<ICard> = (props) => {
 
       <View style={styles.lineContainer}>
         <Text style={styles.lineText}>Health:</Text>
-        <Text style={styles.lineText}>{health}</Text>
+        <Text style={styles.lineText}>{health ? health : "-"}</Text>
       </View>
 
-      {/* {type && <View style={styles.lineContainer}>
+      <View style={styles.lineContainer}>
         <Text style={styles.lineText}>Type:</Text>
-        <Text style={styles.lineText}>{type}</Text>
-      </View>} */}
+        <Text style={styles.lineText}>{type ? type : "-"}</Text>
+      </View>
 
     </View>
   );
