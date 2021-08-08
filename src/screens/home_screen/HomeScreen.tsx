@@ -61,12 +61,12 @@ const HomeScreen: React.FC<HomeProps> = () => {
         style={styles.accordionHeaderStyle} />
 
       {visibleState.searchVisible &&
-        <View>
+        <View style={{ flex: 1 }}>
           <SearchBar
             searchValue={searchName}
             setSearchValue={searchCards}
           />
-          <CardList cardData={searchedCards} style={styles.mechanicListStyle} />
+          <CardList cardData={searchedCards} style={styles.cardListStyle} />
         </View>
       }
 
@@ -78,7 +78,7 @@ const HomeScreen: React.FC<HomeProps> = () => {
 
       {visibleState.mechanicCardsVisibile &&
         <View style={{ flex: 1 }}>
-          <MechanicList mechanicsData={allMechanics} style={styles.cardListStyle} />
+          <MechanicList mechanicsData={allMechanics} style={styles.mechanicListStyle} />
         </View>
       }
     </View>

@@ -8,12 +8,12 @@ export const styles = StyleSheet.create({
   accordionHeaderStyle: {
     marginTop: 20
   },
-  mechanicListStyle: {
+  cardListStyle: {
     justifyContent: "space-evenly",
     padding: 30,
     paddingBottom: 50
   },
-  cardListStyle: {
+  mechanicListStyle: {
     paddingVertical: 10
   }
 
