@@ -9,7 +9,7 @@ target 'hearthstone' do
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods
-    :hermes_enabled => false
+    :hermes_enabled => true
   )
   
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
@@ -28,4 +28,4 @@ target 'hearthstone' do
   post_install do |installer|
     react_native_post_install(installer)
   end
-end,
+end
