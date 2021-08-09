@@ -8,7 +8,6 @@ interface ISearchBar {
   searchValue: string,
   setSearchValue: (newValue: string) => void,
   onSearchSubmit?: () => void,
-
 }
 
 const SearchBar: React.FC<ISearchBar> = (props) => {

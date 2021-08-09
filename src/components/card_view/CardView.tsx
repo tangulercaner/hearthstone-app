@@ -3,7 +3,6 @@ import { View, Text } from "react-native";
 import { ICard } from "../../types/ApiResponseType";
 import { styles } from "./CardView.style";
 
-
 const CardView: React.FC<ICard> = (props) => {
 
   const { name, health, cardSet, playerClass, type } = props

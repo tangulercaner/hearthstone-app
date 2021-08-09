@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import SplashScreen from "../../screens/splash_screen/SplashScreen";
 
-
 const Navigator: React.FC = () => {
 
   const isLoading = useSelector((state: RootState) => state.Splash.splashLoading)

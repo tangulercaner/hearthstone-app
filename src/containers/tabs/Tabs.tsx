@@ -7,14 +7,12 @@ import { styles } from "./Tabs.style";
 import { PRIMARY_COLOR } from "../../styles/Colors";
 import { RootTabParamList } from "../../types/NavigationTypes";
 
-
 export const Tabs: React.FC = () => {
 
   const Tab = createBottomTabNavigator<RootTabParamList>();
 
   return (
-    <Tab.Navigator initialRouteName="Home" screenOptions={{ tabBarStyle: {} }}
-    >
+    <Tab.Navigator initialRouteName="Home">
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -49,6 +47,4 @@ export const Tabs: React.FC = () => {
       />
     </Tab.Navigator>
   );
-
 }
-

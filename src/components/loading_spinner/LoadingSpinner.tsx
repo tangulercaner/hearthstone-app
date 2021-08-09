@@ -1,5 +1,5 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet, View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { PRIMARY_COLOR } from "../../styles/Colors";
 
 interface ILoadingSpinner {

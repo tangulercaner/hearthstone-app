@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { CARD_BACKGROUND, CARD_BORDER_COLOR, PRIMARY_LIGHT_COLOR } from "../../styles/Colors";
+import { PRIMARY_LIGHT_COLOR } from "../../styles/Colors";
 
 export const styles = StyleSheet.create({
   container: {

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { BLACK_COLOR, CARD_BACKGROUND, CARD_BORDER_COLOR, CARD_TEXT_COLOR } from "../../styles/Colors";
+import { CARD_BACKGROUND, CARD_BORDER_COLOR, CARD_TEXT_COLOR } from "../../styles/Colors";
 
 export const styles = StyleSheet.create({
   container: {

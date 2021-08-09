@@ -4,13 +4,11 @@ import Navigator from './src/containers/navigation/Navigator';
 import { Store } from './src/store';
 
 const App = () => {
-
   return (
     <Provider store={Store}>
       <Navigator />
     </Provider>
   );
-
 };
 
 export default App;

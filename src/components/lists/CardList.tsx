@@ -35,4 +35,3 @@ const CardList: React.FC<ICardList> = (props) => {
 }
 
 export default CardList;
-

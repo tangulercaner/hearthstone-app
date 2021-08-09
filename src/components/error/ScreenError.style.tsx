@@ -22,5 +22,4 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     marginRight: 10
   }
-
 })

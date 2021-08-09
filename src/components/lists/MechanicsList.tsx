@@ -33,6 +33,4 @@ const MechanicList: React.FC<IMechanicsList> = (props) => {
   );
 }
 
-
 export default MechanicList;
-
