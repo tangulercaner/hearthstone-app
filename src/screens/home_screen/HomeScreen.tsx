@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { View } from 'react-native';
 import { useSelector } from "react-redux";
@@ -34,12 +34,6 @@ const HomeScreen: React.FC<HomeProps> = () => {
     mechanicCardsVisibile: false
   });
 
-  const searchCards = useCallback((name) => {
-    setSearchName(name)
-    setSearchedCards(searchCardByName(name, allCards))
-  }, [])
-
-
   useEffect(() => {
     const uniqueMechanics = getUniqueMechanics(allCards)
     setAllMechanics(uniqueMechanics)
@@ -64,7 +58,8 @@ const HomeScreen: React.FC<HomeProps> = () => {
         <View style={{ flex: 1 }}>
           <SearchBar
             searchValue={searchName}
-            setSearchValue={searchCards}
+            setSearchValue={setSearchName}
+            onSearchSubmit={() => setSearchedCards(searchCardByName(searchName, allCards))}
           />
           <CardList cardData={searchedCards} style={styles.cardListStyle} />
         </View>

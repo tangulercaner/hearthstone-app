@@ -29,6 +29,7 @@ const CardList: React.FC<ICardList> = (props) => {
         columnWrapperStyle={{ justifyContent: "space-between" }}
         ItemSeparatorComponent={() => <View style={{ margin: 20 }} />}
         numColumns={2}
+        removeClippedSubviews={true}
       />
     </View>
   );

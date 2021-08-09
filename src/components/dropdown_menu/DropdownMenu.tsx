@@ -46,6 +46,7 @@ const DropdownMenu: React.FC<IDropdownMenu> = (props) => {
           style={{ maxHeight: 250 }}
           keyExtractor={(item) => item}
           ItemSeparatorComponent={() => <View style={styles.choiceSeperatorStyle} />}
+          removeClippedSubviews={true}
         />
       </View>}
     </View>
