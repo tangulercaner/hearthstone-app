@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   },
   cardListStyle: {
     justifyContent: "space-evenly",
-    padding: 30,
+    padding: 15,
     paddingBottom: 50
   },
   mechanicListStyle: {

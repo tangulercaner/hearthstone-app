@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   },
   listStyle: {
     justifyContent: "space-evenly",
-    padding: 30,
+    padding: 15,
     paddingBottom: 90
   }
 })
