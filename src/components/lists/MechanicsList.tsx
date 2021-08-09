@@ -18,7 +18,7 @@ const MechanicList: React.FC<IMechanicsList> = (props) => {
   }, [])
 
   return (
-    <View style={{}}>
+    <View>
       <FlatList
         data={mechanicsData}
         renderItem={renderMechanic}
