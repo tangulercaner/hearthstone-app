@@ -9,7 +9,7 @@ describe("Get all cards that icludes the given mechanic", () => {
     const returnedValue = getAllCardsByMechanics(testData, "Silence");
     const expectedMechanicObject = { "name": "Silence" }
 
-    expect(returnedValue.length).toBe(1)
+    expect(returnedValue.length).toBe(2)
     expect(returnedValue).toEqual(
       expect.arrayContaining([
         expect.objectContaining({

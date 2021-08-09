@@ -38,6 +38,27 @@ export const testData: ICard[] = [
         "name": "Silence"
       }
     ]
+  },
+  {
+    "cardId": "CFM_902",
+    "name": "Aya Blackpaw",
+    "cardSet": "Mean Streets of Gadgetzan",
+    "type": "Minion",
+    "cost": 6,
+    "health": 3,
+    "playerClass": "Neutral",
+    "locale": "enUS",
+    "mechanics": [
+      {
+        "name": "Jade Golem"
+      },
+      {
+        "name": "Battlecry"
+      },
+      {
+        "name": "Silence"
+      }
+    ]
   }
 
 

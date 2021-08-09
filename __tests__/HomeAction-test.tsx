@@ -6,10 +6,12 @@ import { testData } from '../src/test_data/TestData';
 describe("Get all unique mechanics", () => {
   it("should return a list of 2 string values", () => {
     const returnedValue = getUniqueMechanics(testData);
-    expect(returnedValue.length).toBe(2)
+    expect(returnedValue.length).toBe(4)
     expect(returnedValue).toEqual([
       "Divine Shield",
-      "Silence"
+      "Silence",
+      "Jade Golem",
+      "Battlecry"
     ])
   })
 });
@@ -26,7 +28,7 @@ describe("Search a card by name", () => {
 
   it("should return an ICard array not includes unmatched names", () => {
     const returnedValue = searchCardByName("shock", testData);
-    const shouldntHave = ["Inner Rage", "Argent Squire"]
+    const shouldntHave = ["Inner Rage", "Argent Squire", "Aya Blackpaw"]
     shouldntHave.map(el =>
       expect(returnedValue).not.toEqual(
         expect.arrayContaining([
